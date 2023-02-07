@@ -32,6 +32,13 @@ main:       mov   rf, ra                     ; copy input pointer to rf
             bdf   usage                      ; df = 1 means invalid number
             ldn   rf                         ; look at first non numeric character
             bnz   usage                      ; no null, so error out 
+            ghi   rd                         ; get converted number msb
+            bnz   delay0                     ; is msb byte zero?
+            glo   rd                         ; get converted number lsb
+            bnz   delay0                     ; is lsb byte zero?
+            ldi   0                          ; set good return code 
+            rtn                              ; exit now as delay was zero
+            
 
 
 
