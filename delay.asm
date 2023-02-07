@@ -15,7 +15,7 @@
 
             org     2000h-6 
             dw      2000h                    ; header, where program loads
-            dw      3000h-2000h              ; length of program to load
+            dw      endrom-2000h              ; length of program to load
             dw      2000h                    ; exec address
             
             org     2000h
